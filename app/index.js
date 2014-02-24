@@ -112,7 +112,7 @@ AppGenerator.prototype.h5bp = function h5bp() {
 
 AppGenerator.prototype.mainStylesheet = function mainStylesheet() {
   var css = 'main.' + (this.includeCompass ? 's' : '') + 'css';
-  this.copy(css, 'app/styles/' + css);
+  this.copy(css, 'app/css/' + css);
 };
 
 AppGenerator.prototype.writeIndex = function writeIndex() {
@@ -123,7 +123,7 @@ AppGenerator.prototype.writeIndex = function writeIndex() {
   // wire Twitter Bootstrap plugins
   if (this.includeBootstrap) {
     var bs = 'bower_components/bootstrap' + (this.includeCompass ? '-sass/vendor/assets/javascripts/bootstrap/' : '/js/');
-    this.indexFile = this.appendScripts(this.indexFile, 'scripts/plugins.js', [
+    this.indexFile = this.appendScripts(this.indexFile, 'js/plugins.js', [
       bs + 'affix.js',
       bs + 'alert.js',
       bs + 'dropdown.js',
@@ -142,27 +142,27 @@ AppGenerator.prototype.writeIndex = function writeIndex() {
   this.indexFile = this.appendFiles({
     html: this.indexFile,
     fileType: 'js',
-    optimizedPath: 'scripts/main.js',
-    sourceFileList: ['scripts/main.js'],
+    optimizedPath: 'js/main.js',
+    sourceFileList: ['js/main.js'],
     searchPath: '{app,.tmp}'
   });
 };
 
 AppGenerator.prototype.app = function app() {
   this.mkdir('app');
-  this.mkdir('app/scripts');
-  this.mkdir('app/styles');
-  this.mkdir('app/images');
+  this.mkdir('app/js');
+  this.mkdir('app/css');
+  this.mkdir('app/img');
   this.write('app/index.html', this.indexFile);
 
   if (this.coffee) {
     this.write(
-      'app/scripts/main.coffee',
+      'app/js/main.coffee',
       'console.log "\'Allo from CoffeeScript!"'
     );
   }
   else {
-    this.write('app/scripts/main.js', 'console.log(\'\\\'Allo \\\'Allo!\');');
+    this.write('app/js/main.js', 'console.log(\'\\\'Allo \\\'Allo!\');');
   }
 };
 

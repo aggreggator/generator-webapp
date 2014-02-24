@@ -36,8 +36,8 @@ describe('Webapp generator test', function () {
       'app/favicon.ico',
       'app/robots.txt',
       'app/index.html',
-      'app/scripts/main.coffee',
-      'app/styles/main.scss'
+      'app/js/main.coffee',
+      'app/css/main.scss'
     ];
 
     helpers.mockPrompt(this.webapp, {
@@ -60,8 +60,8 @@ describe('Webapp generator test', function () {
       'app/favicon.ico',
       'app/robots.txt',
       'app/index.html',
-      'app/scripts/main.js',
-      'app/styles/main.scss'
+      'app/js/main.js',
+      'app/css/main.scss'
     ];
 
     helpers.mockPrompt(this.webapp, {
@@ -84,8 +84,8 @@ describe('Webapp generator test', function () {
       'app/favicon.ico',
       'app/robots.txt',
       'app/index.html',
-      'app/scripts/main.js',
-      'app/styles/main.scss'
+      'app/js/main.js',
+      'app/css/main.scss'
     ];
 
     helpers.mockPrompt(this.webapp, {
